@@ -1,14 +1,15 @@
-import { BadRequestError } from '@/domain/errors/bad-request-error ';
-import { InvalidCredentialsError } from '@/domain/errors/invalid-credentials-error';
-import { NotFoundError } from '@/domain/errors/not-found';
-import { ServerError } from '@/domain/errors/server-error';
+import {
+  BadRequestError,
+  InvalidCredentialsError,
+  NotFoundError,
+  ServerError
+} from '@/domain/errors';
 import { AccountModel } from '@/domain/models/account-model';
 import {
   Authentication,
   AuthenticationParams
 } from '@/domain/usecases/authentication';
-import { HttpPostClient } from '../../protocols/http/http-post-client';
-import { HttpStatusCode } from '../../protocols/http/http-response';
+import { HttpPostClient, HttpStatusCode } from '../../protocols/http';
 
 export class RemoteAuthentication implements Authentication {
   constructor(

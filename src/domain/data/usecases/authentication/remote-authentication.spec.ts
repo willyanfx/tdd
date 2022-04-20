@@ -1,17 +1,16 @@
-import { HttpPostClientSpy } from '../../test/mock-http-client';
-import { RemoteAuthentication } from './remote-authentication';
-import { randDomainName } from '@ngneat/falso';
+import { AuthenticationParams } from '@/domain/usecases';
+import { AccountModel } from '@/domain/models';
 import {
-  mockAccountModel,
-  mockAuthentication
-} from '../../../test/mock-account';
-import { InvalidCredentialsError } from '@/domain/errors/invalid-credentials-error';
-import { HttpStatusCode } from '../../protocols/http/http-response';
-import { BadRequestError } from '@/domain/errors/bad-request-error ';
-import { ServerError } from '@/domain/errors/server-error';
-import { NotFoundError } from '@/domain/errors/not-found';
-import { AuthenticationParams } from '@/domain/usecases/authentication';
-import { AccountModel } from '@/domain/models/account-model';
+  BadRequestError,
+  InvalidCredentialsError,
+  NotFoundError,
+  ServerError
+} from '@/domain/errors';
+import { mockAccountModel, mockAuthentication } from '@/domain/test';
+import { RemoteAuthentication } from './remote-authentication';
+import { HttpStatusCode } from '../../protocols/http';
+import { HttpPostClientSpy } from '../../test';
+import { randDomainName } from '@ngneat/falso';
 
 type SutTypes = {
   sut: RemoteAuthentication;

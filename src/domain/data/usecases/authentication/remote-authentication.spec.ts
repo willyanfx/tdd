@@ -1,7 +1,10 @@
 import { HttpPostClientSpy } from '../../test/mock-http-client';
 import { RemoteAuthentication } from './remote-authentication';
 import { randDomainName } from '@ngneat/falso';
-import { mockAuthentication } from '../../../test/mock-auth';
+import {
+  mockAccountModel,
+  mockAuthentication
+} from '../../../test/mock-account';
 import { InvalidCredentialsError } from '@/domain/errors/invalid-credentials-error';
 import { HttpStatusCode } from '../../protocols/http/http-response';
 import { BadRequestError } from '@/domain/errors/bad-request-error ';
@@ -77,5 +80,16 @@ describe('RemoteAuthetication', () => {
     };
     const promise = sut.auth(mockAuthentication());
     await expect(promise).rejects.toThrow(new NotFoundError());
+  });
+
+  test('should return an AccountModel if http return 200', async () => {
+    const { sut, httpPostClientSpy } = makeSut();
+    const httpResult = mockAccountModel();
+    httpPostClientSpy.response = {
+      statusCode: HttpStatusCode.ok,
+      body: httpResult
+    };
+    const account = await sut.auth(mockAuthentication());
+    expect(account).toEqual(httpResult);
   });
 });

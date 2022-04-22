@@ -1,6 +1,7 @@
 import { AxiosHttpClient } from './axios-http-client';
 import axios from 'axios';
-import { randUrl } from '@ngneat/falso';
+import { randPost, randUrl } from '@ngneat/falso';
+import { HttpPostParams } from '@/domain/data/protocols/http';
 
 jest.mock('axios');
 const mockedAxios = axios as jest.Mocked<typeof axios>;
@@ -9,11 +10,16 @@ const makeSut = (): AxiosHttpClient => {
   return new AxiosHttpClient();
 };
 
+const mockPostRequest = (): HttpPostParams<any> => ({
+  url: randUrl(),
+  body: randPost({ length: 1 })
+});
+
 describe('AxiosHttpClient', () => {
   test('should call axios with correct url and verb', async () => {
-    const url = randUrl();
+    const request = mockPostRequest();
     const sut = makeSut();
-    await sut.post({ url: url });
-    expect(mockedAxios.post).toHaveBeenCalledWith(url);
+    await sut.post(request);
+    expect(mockedAxios.post).toHaveBeenCalledWith(request.url);
   });
 });

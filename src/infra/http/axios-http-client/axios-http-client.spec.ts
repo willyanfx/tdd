@@ -1,4 +1,4 @@
-import { mockPostRequest } from '@/domain/data/test';
+import { mockPostRequest } from '@/data/test';
 import { AxiosHttpClient } from './axios-http-client';
 import { mockAxios } from '../../test';
 import axios from 'axios';

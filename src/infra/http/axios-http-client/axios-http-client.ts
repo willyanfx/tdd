@@ -2,7 +2,7 @@ import {
   HttpPostClient,
   HttpPostParams,
   HttpResponse
-} from '@/domain/data/protocols/http';
+} from '@/data/protocols/http';
 import axios from 'axios';
 
 export class AxiosHttpClient implements HttpPostClient<any, any> {

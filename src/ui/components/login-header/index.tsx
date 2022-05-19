@@ -1,6 +1,7 @@
-import React from 'react';
+import React, { memo } from 'react';
 import Styles from './login-header.module.scss';
-const LoginHeader: React.FC = () => {
+
+const LoginHeader: React.FC = (props) => {
   return (
     <header className={Styles.headerContainer}>
       <div>Logo</div>
@@ -9,4 +10,4 @@ const LoginHeader: React.FC = () => {
   );
 };
 
-export default LoginHeader;
+export default memo(LoginHeader);

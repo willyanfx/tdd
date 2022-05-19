@@ -3,7 +3,8 @@ import {
   Footer,
   Input,
   Spinner,
-  SubmitButton
+  SubmitButton,
+  FormValidation
 } from '@/ui/components';
 
 import React from 'react';
@@ -16,8 +17,9 @@ export const Login: React.FC = () => {
       <form action="" className={Styles.form}>
         <h2>Login</h2>
         <Input />
+        <Input />
         <SubmitButton state={false}>Submit</SubmitButton>
-        <Spinner />
+        <FormValidation state={{}} />
       </form>
       <Footer />
     </div>

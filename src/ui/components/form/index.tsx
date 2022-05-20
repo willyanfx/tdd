@@ -1,20 +1,14 @@
-import React from 'react';
+import React, { useContext } from 'react';
 import Styles from './form.module.scss';
 import Spinner from '../spinner';
+import Context from '@/ui/contexts/form/form-context';
 
-type Props = {
-  state?: {
-    isLoading?: boolean;
-    hasError?: string;
-  };
-};
-
-const FormValidation = ({ state }: Props) => {
-  const { isLoading, hasError } = state;
+const FormValidation = () => {
+  const { isLoading, errorMessage } = useContext(Context);
   return (
     <div data-testid="error-wrap" className={Styles.errorWrap}>
       {isLoading && <Spinner className={Styles.spinner} />}
-      {hasError && <span data-testid="main-error"> {hasError}</span>}
+      {errorMessage && <span data-testid="main-error"> {errorMessage}</span>}
     </div>
   );
 };

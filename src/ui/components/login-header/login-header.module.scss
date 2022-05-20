@@ -1,22 +1,22 @@
 .headerContainer {
-    display: flex;
-    flex-direction: column;
-    border-top: 40px solid var(--primary-dark);
-    background-color: var(--primary);
-    align-items: center;
-  
-    img {
-      margin-top: 40px;
-    }
-  
-    h1 {
-      color: var(--white);
-      margin: 16px 0px 40px;
-    }
+  display: flex;
+  flex-direction: column;
+  border-top: 40px solid var(--primary-dark);
+  background-color: var(--primary);
+  align-items: center;
+
+  img {
+    margin-top: 40px;
   }
-  
-  @media only screen and (max-width: 600px) {
-    .headerWrap {
-      border-top-width: 20px;
-    }
+
+  h1 {
+    color: var(--white);
+    margin: 16px 0px 40px;
   }
+}
+
+@media only screen and (max-width: 600px) {
+  .headerWrap {
+    border-top-width: 20px;
+  }
+}

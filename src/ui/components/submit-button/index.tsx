@@ -2,12 +2,12 @@ import React from 'react';
 
 type Props = {
   children: React.ReactNode;
-  state: any;
+  isDisabled: boolean;
 };
 
-const SubmitButton: React.FC<Props> = ({ state, children }: Props) => {
+const SubmitButton: React.FC<Props> = ({ isDisabled, children }: Props) => {
   return (
-    <button data-testid="submit" disabled={state.isFormInvalid} type="submit">
+    <button data-testid="submit" disabled={isDisabled} type="submit">
       {children}
     </button>
   );

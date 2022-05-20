@@ -28,7 +28,7 @@ export const Login: React.FC = () => {
           <h2>Login</h2>
           <Input type="email" />
           <Input type="password" />
-          <SubmitButton state={false}>Submit</SubmitButton>
+          <SubmitButton isDisabled={false}>Submit</SubmitButton>
           <FormValidation />
         </form>
       </Context.Provider>

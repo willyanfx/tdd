@@ -13,12 +13,14 @@ import Styles from './login.module.scss';
 type StateProps = {
   isLoading: boolean;
   errorMessage: string;
+  hasError: string;
 };
 
 export const Login: React.FC = () => {
   const [state] = useState<StateProps>({
     isLoading: false,
-    errorMessage: ''
+    errorMessage: '',
+    hasError: 'required'
   });
   return (
     <div className={Styles.loginContainer}>

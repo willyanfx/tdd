@@ -6,6 +6,7 @@ import {
   FormValidation
 } from '@/ui/components';
 import Context from '@/ui/contexts/form/form-context';
+import { Validation } from '@/ui/protocols/validation';
 
 import React, { useState } from 'react';
 import Styles from './login.module.scss';
@@ -16,7 +17,14 @@ type StateProps = {
   hasError: string;
 };
 
-export const Login: React.FC = () => {
+type LoginProps = {
+  validation: Validation;
+};
+
+export const Login: React.FC<LoginProps> = ({
+  validation,
+  ...props
+}: LoginProps) => {
   const [state] = useState<StateProps>({
     isLoading: false,
     errorMessage: '',

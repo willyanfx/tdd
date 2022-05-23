@@ -13,7 +13,14 @@ const Input: React.FC<InputProps> = ({ type }) => {
 
   return (
     <div className={Styles.inputContainer}>
-      <input ref={inputRef} placeholder="" type={type} name="" id={`${type}`} />
+      <input
+        ref={inputRef}
+        placeholder=""
+        type={type}
+        name=""
+        id={`${type}`}
+        data-testid={type}
+      />
       {hasError && (
         <span
           data-testid="input-status"
